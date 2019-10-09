@@ -1,0 +1,38 @@
+<div class="controls">
+  <div class="search-form">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input
+          class="search-form__input"
+          type="text"
+          placeholder="Pick one"
+          aria-label="Number"
+          matInput
+          [formControl]="favoriteInput"
+        />
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="btn-box">
+    <button (click)="getAnother()" class="btn-box__favorites btn-box__favorites--red" mat-button>
+        get another
+    </button>
+    <button (click)="showFavorites()" class="btn-box__favorites btn-box__favorites--yellow" mat-button>
+      favorites
+    </button>
+    <button (click)="showAll()" class="btn-box__favorites btn-box__favorites--green" mat-button>
+      all
+    </button>
+  </div>
+</div>
+<div class="video-list">
+  <mat-card class="video-list__item" *ngFor="let item of itemList">
+    <img
+      mat-card-image
+      class="video-list__img"
+      [src]="item.snippet.thumbnails.default.url"
+      alt=""
+    />
+    <mat-card-subtitle>{{ item.snippet.title }}</mat-card-subtitle>
+  </mat-card>
+</div>
